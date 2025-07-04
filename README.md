@@ -24,8 +24,8 @@ Follow these steps to run the project locally:
 # STEP 1
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/fitnessstudio-booking-api.git
-cd fitnessstudio-booking-api
+git clone https://github.com/Naveenjith/fitnesstudio.git
+cd fitnesstudio
 
 # STEP 2
 # Create virtual environment
