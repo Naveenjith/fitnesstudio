@@ -7,15 +7,32 @@ from rest_framework.response import Response
 import logging
 from rest_framework import status
 from django.core.exceptions import ObjectDoesNotExist
+from zoneinfo import ZoneInfo
 
 
 logger=logging.getLogger(__name__)
 
 class FitnessClassList(APIView):
-    def get(self,request):
-        classes=FitnessClass.objects.filter(datetime__gte=localtime())
-        serializer=FitnesClassSerilaizer(classes,many=True)
-        return Response(serializer.data)
+    def get(self, request):
+        tz_param = request.query_params.get('tz', 'Asia/Kolkata')
+        try:
+            user_tz = ZoneInfo(tz_param)
+        except:
+            return Response({"error": "Invalid timezone"}, status=400)
+
+        classes = FitnessClass.objects.filter(datetime__gte=localtime())
+        data = []
+        for x in classes:
+            # Convert to requested timezone
+            converted_time = x.datetime.astimezone(user_tz).isoformat()
+            data.append({
+                "id": x.id,
+                "name": x.name,
+                "instructor": x.instructor,
+                "datetime": converted_time,
+                "available_slots": x.available_slots
+            })
+        return Response(data)
     
 class FitnesClassBooking(APIView):
     def post(self,request):
@@ -50,6 +67,6 @@ class BookingListview(APIView):
         if not email:
             return Response({"error":"Email Parameter Is Required"},status=status.HTTP_400_BAD_REQUEST)
         booking=ClassBooking.objects.filter(client_email=email)
-        serializer=ClassBookingSerializer(booking,many=True)
+        serializer=ClassBookingSerializer(booking,many=True,context={'request': request})
         return Response(serializer.data)
 

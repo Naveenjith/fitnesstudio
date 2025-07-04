@@ -11,7 +11,8 @@ A simple and clean RESTful API for a fictional fitness studio. Clients can view 
 - 📅 View all upcoming fitness classes (`GET /api/classes/`)
 - 📥 Book a fitness class (`POST /api/booking/`)
 - 📧 View bookings made by a specific email (`GET /api/bookings/email/`)
-- ⏰ Handles timezone (IST) with automatic conversion
+- 🌍 Supports timezone-based datetime conversion 
+      — pass ?tz=America/New_York to view class times in your local timezone.
 - 🚫 Prevents overbooking and missing required fields
 - ✅ Unit tested with Django’s built-in test framework
 - 🧪 In-memory SQLite DB (no setup required)
@@ -102,22 +103,32 @@ python manage.py runserver
 ```
 ### sample API Request on Postman
 -View All classes
-method-GET
+method:GET
 URL:http://127.0.0.1:8000/api/classes/
+
+optional query parameters:?tz=Your/Timezone
+(This returns class times in your local timezone.)
+
 -Book a Class
 method-POST
 URL:http://127.0.0.1:8000/api/booking/
 --Body--
-The fitness_class ids changes according to classes from the get we can see the class ids 
+!Use the class id retrieved from the /api/classes/ response
+
+```bash
 {
   "fitness_class": 1,
   "client_name": "Name",
   "client_email": "email@example.com"
 }
+```
 
 -View Bookings By Email
-method-GET
+method:GET
 URL:http://127.0.0.1:8000/api/bookings/email@example.com/
+
+optional query parameters:?tz=Your/Timezone
+(This returns class times in your local timezone.)
 
 ### Run Unit Tests
 ```bash
