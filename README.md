@@ -103,16 +103,22 @@ python manage.py runserver
 ```
 ### sample API Request on Postman
 -View All classes
+
 method:GET
+
 URL:http://127.0.0.1:8000/api/classes/
 
 optional query parameters:?tz=Your/Timezone
 (This returns class times in your local timezone.)
 
 -Book a Class
+
 method-POST
+
 URL:http://127.0.0.1:8000/api/booking/
+
 --Body--
+
 !Use the class id retrieved from the /api/classes/ response
 
 ```bash
@@ -124,7 +130,9 @@ URL:http://127.0.0.1:8000/api/booking/
 ```
 
 -View Bookings By Email
+
 method:GET
+
 URL:http://127.0.0.1:8000/api/bookings/email@example.com/
 
 optional query parameters:?tz=Your/Timezone
