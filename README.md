@@ -23,7 +23,7 @@ Follow these steps to run the project locally:
 
 # STEP 1
 ### 1. Clone the Repository
-```bash
+-bash
 git clone https://github.com/Naveenjith/fitnesstudio.git
 cd fitnesstudio
 
