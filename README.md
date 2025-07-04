@@ -30,25 +30,25 @@ git clone https://github.com/Naveenjith/fitnesstudio.git
 cd fitnesstudio
 ```
 ### 🔹 STEP 2
-# Create virtual environment
+--Create virtual environment
 python -m venv env
-# Activate the environment
-# On Windows:
+--Activate the environment
+--On Windows:
 env\Scripts\activate
-# On macOS/Linux:
+--On macOS/Linux:
 source env/bin/activate
 
 ### 🔹 STEP 3
-# Install Dependencies
+--Install Dependencies
 pip install -r requirements.txt
 
 ### 🔹 STEP 4
-Run Migrations
+--Run Migrations
 python manage.py makemigrations
 python manage.py migrate
 
 ### 🔹 STEP 5
-Sample Data
+--Sample Data
 ```bash
 python manage.py shell
 
@@ -85,10 +85,10 @@ FitnessClass.objects.create(
 exit()
 ```
 
-#start the server 
+### start the server 
 python manage.py runserver
 
-#sample API Request on Postman
+### sample API Request on Postman
 -View All classes
 method-GET
 URL:http://127.0.0.1:8000/api/classes/
@@ -107,6 +107,6 @@ The fitness_class ids changes according to classes from the get we can see the c
 method-GET
 URL:http://127.0.0.1:8000/api/bookings/email@example.com/
 
-#Run Unit Tests
+### Run Unit Tests
 -bash
 python manage.py test
