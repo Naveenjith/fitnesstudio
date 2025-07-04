@@ -21,13 +21,15 @@ A simple and clean RESTful API for a fictional fitness studio. Clients can view 
 ## 🔧 Setup Instructions
 Follow these steps to run the project locally:
 
-# STEP 1
-### 1. Clone the Repository
--bash
+---
+
+### 🔹 STEP 1: Clone the Repository
+
+```bash
 git clone https://github.com/Naveenjith/fitnesstudio.git
 cd fitnesstudio
-
-# STEP 2
+```
+### 🔹 STEP 2
 # Create virtual environment
 python -m venv env
 # Activate the environment
@@ -36,18 +38,18 @@ env\Scripts\activate
 # On macOS/Linux:
 source env/bin/activate
 
-# STEP 3
+### 🔹 STEP 3
 # Install Dependencies
 pip install -r requirements.txt
 
-# STEP 4
+### 🔹 STEP 4
 Run Migrations
 python manage.py makemigrations
 python manage.py migrate
 
-#STEP 5
+### 🔹 STEP 5
 Sample Data
-# In bash
+```bash
 python manage.py shell
 
 --paste this
@@ -81,6 +83,7 @@ FitnessClass.objects.create(
 
 --exit the shell
 exit()
+```
 
 #start the server 
 python manage.py runserver
