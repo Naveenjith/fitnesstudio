@@ -31,29 +31,39 @@ cd fitnesstudio
 ```
 ### 🔹 STEP 2
 --Create virtual environment
+```bash
 python -m venv env
+```
 --Activate the environment
 --On Windows:
+```bash
 env\Scripts\activate
+```
 --On macOS/Linux:
+```bash
 source env/bin/activate
+```
 
 ### 🔹 STEP 3
 --Install Dependencies
+```bash
 pip install -r requirements.txt
+```
 
 ### 🔹 STEP 4
 --Run Migrations
+```bash
 python manage.py makemigrations
 python manage.py migrate
+```
 
 ### 🔹 STEP 5
 --Sample Data
 ```bash
 python manage.py shell
-
+```
 --paste this
-
+```bash
 from fitnessapi.models import FitnessClass
 from django.utils.timezone import now, timedelta
 
@@ -80,14 +90,16 @@ FitnessClass.objects.create(
     total_slots=10,
     available_slots=10
 )
-
+```
 --exit the shell
+```bash
 exit()
 ```
 
 ### start the server 
+```bash
 python manage.py runserver
-
+```
 ### sample API Request on Postman
 -View All classes
 method-GET
@@ -108,5 +120,6 @@ method-GET
 URL:http://127.0.0.1:8000/api/bookings/email@example.com/
 
 ### Run Unit Tests
--bash
+```bash
 python manage.py test
+```
